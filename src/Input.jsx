@@ -14,6 +14,7 @@ class Input extends Component {
 
   handleBtnClick () {
       this.setState({ input: this.state.input });
+      console.log(this);
   }
 
   handleInputChange(e) {

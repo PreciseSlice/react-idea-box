@@ -4,23 +4,37 @@ class Input extends Component {
   constructor() {
     super();
     this.state = { 
-      input: ''
+      title: '',
+      body: ''
     };
 
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleBtnClick = this.handleBtnClick.bind(this);
+    this.inputTitle = this.inputTitle.bind(this);
+    this.inputBody = this.inputBody.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
+
+    this.handleBtnClick = (e) => {
+      e.preventDefault();
+      this.props.makeCard (
+        this.state.title,
+        this.state.body
+      );
+    };
   }
 
-  handleBtnClick () {
-      this.setState({ input: this.state.input });
-      console.log(this);
+  inputTitle(e) {
+    this.setState (
+      {
+        title: e.target.value
+      }
+    );
   }
 
-  handleInputChange(e) {
-    this.setState({
-      input: e.target.value,
-    });
+  inputBody(e) {
+    this.setState (
+      {
+        body: e.target.value
+      }
+    );
   }
 
   handleKeyPress(e) {
@@ -36,11 +50,17 @@ class Input extends Component {
         
         <input 
           autoFocus
-          id="userInput"
-          value={this.state.input}
-          onChange={this.handleInputChange}
+          id="title"
+          onChange={this.inputTitle}
           onKeyPress={this.handleKeyPress}
-          placeholder="Enter Idea"
+          placeholder="Enter Idea Title"
+        />
+
+        <input 
+          id="body"
+          onChange={this.inputBody}
+          onKeyPress={this.handleKeyPress}
+          placeholder="Enter Idea Body"
         />
 
         <button onClick={this.handleBtnClick}>Add Idea</button>

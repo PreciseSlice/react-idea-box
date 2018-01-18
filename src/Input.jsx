@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './styles/Input.css';
 
 class Input extends Component {
   constructor() {
@@ -11,14 +12,7 @@ class Input extends Component {
     this.inputTitle = this.inputTitle.bind(this);
     this.inputBody = this.inputBody.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
-
-    this.handleBtnClick = (e) => {
-      e.preventDefault();
-      this.props.makeCard (
-        this.state.title,
-        this.state.body
-      );
-    };
+    this.handleBtnClick = this.handleBtnClick.bind(this);
   }
 
   inputTitle(e) {
@@ -26,6 +20,14 @@ class Input extends Component {
       {
         title: e.target.value
       }
+    );
+  }
+
+  handleBtnClick(e) {
+    e.preventDefault();
+    this.props.makeCard (
+      this.state.title,
+      this.state.body
     );
   }
 
@@ -40,7 +42,7 @@ class Input extends Component {
   handleKeyPress(e) {
     if (e.key === 'Enter') {
       e.preventDefault();
-      this.handleBtnClick();
+      this.handleBtnClick(e);
     }
   }
 

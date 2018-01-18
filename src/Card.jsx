@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Card.css';
+import './styles/Card.css';
 
 class Card extends Component {
   constructor() {
@@ -15,6 +15,7 @@ class Card extends Component {
         <h3>{this.props.quality}</h3>
         <button className="upVote">Up</button>
         <button className="downVote">Down</button>
+        <button className="delete">Delete</button>
       </div>
     );
   }

@@ -20,7 +20,7 @@ class StoredCards extends Component {
  
   render() {
     return (
-      <div>
+      <div className="store-cards">
         <input 
           id="search" 
           placeholder="Search" 

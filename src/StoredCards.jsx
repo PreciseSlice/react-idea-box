@@ -20,7 +20,6 @@ class StoredCards extends Component {
     return (
       <div className="store-cards">
         <input id="search" placeholder="Search" onChange={this.inputSearch} />
-
         {this.props.cardArray.map((card, i) => {
           let title = card.title.toLowerCase();
           let body = card.body.toLowerCase();
@@ -35,8 +34,10 @@ class StoredCards extends Component {
                 body={card.body}
                 quality={card.quality}
                 key={i}
-                delete={this.props.delete}
                 id={card.id}
+                delete={this.props.delete}
+                upVote={this.props.upVote}
+                downVote={this.props.downVote}
               />
             );
           } else {

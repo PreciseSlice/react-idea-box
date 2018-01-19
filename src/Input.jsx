@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import './styles/Input.css';
+import React, { Component } from "react";
+import "./styles/Input.css";
 
 class Input extends Component {
   constructor() {
     super();
-    this.state = { 
-      title: '',
-      body: ''
+    this.state = {
+      title: "",
+      body: ""
     };
 
     this.inputTitle = this.inputTitle.bind(this);
@@ -16,31 +16,24 @@ class Input extends Component {
   }
 
   inputTitle(e) {
-    this.setState (
-      {
-        title: e.target.value
-      }
-    );
+    this.setState({
+      title: e.target.value
+    });
   }
 
   handleBtnClick(e) {
     e.preventDefault();
-    this.props.makeCard (
-      this.state.title,
-      this.state.body
-    );
+    this.props.makeCard(this.state.title, this.state.body);
   }
 
   inputBody(e) {
-    this.setState (
-      {
-        body: e.target.value
-      }
-    );
+    this.setState({
+      body: e.target.value
+    });
   }
 
   handleKeyPress(e) {
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       e.preventDefault();
       this.handleBtnClick(e);
     }
@@ -48,9 +41,8 @@ class Input extends Component {
 
   render() {
     return (
-      <div className='input'>
-        
-        <input 
+      <div className="input">
+        <input
           autoFocus
           id="title"
           onChange={this.inputTitle}
@@ -58,7 +50,7 @@ class Input extends Component {
           placeholder="Enter Idea Title"
         />
 
-        <input 
+        <input
           id="body"
           onChange={this.inputBody}
           onKeyPress={this.handleKeyPress}
@@ -66,9 +58,8 @@ class Input extends Component {
         />
 
         <button onClick={this.handleBtnClick}>Add Idea</button>
-      
       </div>
-    )
+    );
   }
 }
 

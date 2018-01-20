@@ -1,8 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { shallow, mount, render } from 'enzyme';
 import App from '../App';
+import LocalStorageMock from './mockStorage'
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
+global.localStorage = new LocalStorageMock;
+
+describe('App', () => {
+  let wrapper;
+
+  beforeEach(() => {
+    wrapper = shallow(<App />);
+  });
+
+  it('should exist', () => {
+    expect(wrapper).toBeDefined();
+  });
+
+  it('It should have a default state of cardArray set to an empty array', () => {
+    expect( wrapper.state('cardArray') ).toEqual([null]);
+  });
+
 });

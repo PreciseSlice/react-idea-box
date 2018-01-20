@@ -21,4 +21,9 @@ describe('App', () => {
     expect( wrapper.state('cardArray') ).toEqual([null]);
   });
 
+  it('should render Header and StoredCards', ()=> {
+    expect(wrapper.find('Header').length).toEqual(1);
+    expect(wrapper.find('StoredCards').length).toEqual(1); 
+  })
+
 });

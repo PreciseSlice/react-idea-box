@@ -29,6 +29,8 @@ class App extends Component {
     this.setState({
       cardArray: newCardArray
     });
+
+    console.log(this.state.cardArray)
   }
 
   deleteCard(id) {
